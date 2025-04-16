@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2>{{ newContact.id === 0 ? 'Add New Contact' : 'Edit Contact' }}</h2>
+  <form (ngSubmit)="addContact()">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="newContact.fName" name="fName" required>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="newContact.lName" name="lName" required>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="newContact.phoneNumber" name="phoneNumber">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" placeholder="Email" [(ngModel)]="newContact.email" name="email">
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      {{ newContact.id === 0 ? 'Add Contact' : 'Update Contact' }}
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary ms-2"
+      *ngIf="newContact.id !== 0"
+      (click)="cancelEdit()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
